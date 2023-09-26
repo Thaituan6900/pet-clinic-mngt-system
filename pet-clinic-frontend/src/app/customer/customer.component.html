@@ -1,0 +1,24 @@
+<p-table [value]="customers" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Birthday</th>
+      <th>Gender</th>
+      <th>Phone</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.firstName }}</td>
+      <td>{{ customer.lastName }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.dob | date : "dd/MM/yyyy" }}</td>
+      <td>{{ customer.gender }}</td>
+      <td>{{ customer.phone }}</td>
+    </tr>
+  </ng-template>
+</p-table>
