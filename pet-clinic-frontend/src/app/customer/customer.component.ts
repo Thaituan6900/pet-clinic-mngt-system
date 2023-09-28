@@ -21,6 +21,6 @@ export class CustomerComponent implements OnInit {
         console.log(response);
       })
     );
-    debugger;
+    // debugger;
   }
 }
