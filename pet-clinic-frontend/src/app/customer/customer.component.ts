@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from './customer';
 import { CustomerService } from './customer.service';
 import { DatePipe } from '@angular/common';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-customer',
@@ -10,18 +11,16 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe],
 })
 export class CustomerComponent implements OnInit {
-  customers: Customer[] = [];
+  customers: Observable<any> | undefined;
 
   constructor(private customerService: CustomerService) {}
 
   ngOnInit(): void {
-    this.getCustomerList();
-  }
-
-  getCustomerList() {
-    this.customerService.getCustomers().subscribe((response) => {
-      // console.log(response);
-      this.customers = response;
-    });
+    this.customers = this.customerService.getCustomers().pipe(
+      tap((response) => {
+        console.log(response);
+      })
+    );
+    debugger;
   }
 }

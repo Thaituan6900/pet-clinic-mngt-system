@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
   constructor(private _http: HttpClient) {}
-  getCustomers(): Observable<Customer[]> {
-    return this._http.get<Customer[]>('http://localhost:3000/customers');
+  getCustomers() {
+    return this._http.get('http://localhost:3000/customer');
   }
 }
