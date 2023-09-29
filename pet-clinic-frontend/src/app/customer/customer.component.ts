@@ -12,6 +12,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class CustomerComponent implements OnInit {
   customers: Observable<any> | undefined;
+  displayAddModal = false;
 
   constructor(private customerService: CustomerService) {}
 
@@ -22,5 +23,13 @@ export class CustomerComponent implements OnInit {
       })
     );
     // debugger;
+  }
+
+  showAddModal() {
+    this.displayAddModal = true;
+  }
+
+  hideAddModal(isClosed: boolean) {
+    this.displayAddModal = !isClosed;
   }
 }
